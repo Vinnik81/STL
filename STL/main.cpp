@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include<array>
 #include<vector>
 #include<deque>
@@ -68,9 +68,9 @@ void main()
 	/*int index;
 	int count;
 	int value;
-	cout << "Ââåäèòå èíäåêñ äîáîâëÿåìîãî ýëåìåíòà: "; cin >> index;
-	cout << "Ââåäèòå êîëè÷åñòâî äîáîâëÿåìîãî ýëåìåíòà: "; cin >> count;
-	cout << "Ââåäèòå çíà÷åíèå äîáîâëÿåìîãî ýëåìåíòà: "; cin >> value;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð´Ð¾Ð±Ð¾Ð²Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> index;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð¾Ð±Ð¾Ð²Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> count;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð´Ð¾Ð±Ð¾Ð²Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> value;
 	vec.insert(vec.begin() + index, count, value);*/
 	vec.insert(vec.begin() + 3, { 1024,2048,3072 });
 	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); ++it)
