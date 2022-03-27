@@ -2,6 +2,7 @@
 #include<array>
 #include<vector>
 #include<deque>
+#include<list>
 using namespace std;
 
 #define tab "\t"
@@ -9,7 +10,8 @@ using namespace std;
 
 //#define STL_ARRAY
 //#define STL_VECTOR
-#define DEQUE
+//#define STL_DEQUE
+#define STL_LIST
 
 void main()
 {
@@ -80,7 +82,7 @@ void main()
 	cout << endl;
 #endif // STL_VECTOR
 
-#ifdef DEQUE
+#ifdef STL_DEQUE
 
 	std::deque<int> deque = { 3,5,8,13,21 };
 	deque.push_back(34);
@@ -96,8 +98,23 @@ void main()
 		cout << i << tab;
 	}
 
-#endif // DEQUE
+#endif // STL_DEQUE
 
+#ifdef STL_LIST
+	std::list<int>::iterator it;
+	std::list<int> list = { 3,5,8,13,21 };
+	int index;
+	int value;
+	for (it = list.begin(); it != list.end(); ++it)
+		cout << *it << tab; cout << endl;
+	cout << "Введите индекс добавляемого элемента: "; cin >> index;
+	cout << "Введите значение добавляемого элемента: "; cin >> value;
+	it = list.begin();
+	for (int i = 0; i < index; i++)++it;
+		list.insert(it, value);
+	for (it = list.begin(); it != list.end(); ++it)
+		cout << *it << tab; cout << endl;
+#endif // STL_LIST
 
 
 }
