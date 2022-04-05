@@ -1,4 +1,4 @@
-#include<Windows.h>
+п»ї#include<Windows.h>
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -14,20 +14,20 @@ using std::endl;
 
 const std::map<int, std::string> CRIMES =
 {
-	std::pair<int, std::string>(1, "проезд на красный"),
-	std::pair<int, std::string>(2, "привышение скорости"),
-	std::pair<int, std::string>(3, "езда по встречной полосе"),
-	std::pair<int, std::string>(4, "дрифт на перекрёстке"),
-	std::pair<int, std::string>(5, "парковка в неположенном месте"),
-	std::pair<int, std::string>(6, "оскарбление офицера"),
-	std::pair<int, std::string>(7, "вождение в нетрезвом состоянии"),
-	std::pair<int, std::string>(8, "вождение без документов"),
+	std::pair<int, std::string>(1, "РїСЂРѕРµР·Рґ РЅР° РєСЂР°СЃРЅС‹Р№"),
+	std::pair<int, std::string>(2, "РїСЂРёРІС‹С€РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё"),
+	std::pair<int, std::string>(3, "РµР·РґР° РїРѕ РІСЃС‚СЂРµС‡РЅРѕР№ РїРѕР»РѕСЃРµ"),
+	std::pair<int, std::string>(4, "РґСЂРёС„С‚ РЅР° РїРµСЂРµРєСЂС‘СЃС‚РєРµ"),
+	std::pair<int, std::string>(5, "РїР°СЂРєРѕРІРєР° РІ РЅРµРїРѕР»РѕР¶РµРЅРЅРѕРј РјРµСЃС‚Рµ"),
+	std::pair<int, std::string>(6, "РѕСЃРєР°СЂР±Р»РµРЅРёРµ РѕС„РёС†РµСЂР°"),
+	std::pair<int, std::string>(7, "РІРѕР¶РґРµРЅРёРµ РІ РЅРµС‚СЂРµР·РІРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё"),
+	std::pair<int, std::string>(8, "РІРѕР¶РґРµРЅРёРµ Р±РµР· РґРѕРєСѓРјРµРЅС‚РѕРІ"),
 };
 
 class Crime
 {
-	int id;	 //статья
-	std::string place; //место происшествия
+	int id;	 //СЃС‚Р°С‚СЊСЏ
+	std::string place; //РјРµСЃС‚Рѕ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ
 public:
 	int get_id()const
 	{
@@ -70,22 +70,22 @@ void main()
 	SetConsoleOutputCP(1251);
 	std::map<std::string, std::list<Crime>> base/* =
 	{
-		std::pair<std::string, std::list<Crime>>("a777bb", {Crime(1, "ул. Ленина"), Crime(2, "ул. Октябрьская"), Crime(3, "ул. Октябрьская"), Crime(6, "ул. Степного фрогнта")}),
-		{"b123ca", {Crime(5, "ул. Ленина"), Crime(8, "ул. Октябрьская")}},
-		{"b555ab", {Crime(4, "перекрёсток Ленина и Октябрьской"), Crime(8, "ул. Октябрьская")}}
+		std::pair<std::string, std::list<Crime>>("a777bb", {Crime(1, "СѓР». Р›РµРЅРёРЅР°"), Crime(2, "СѓР». РћРєС‚СЏР±СЂСЊСЃРєР°СЏ"), Crime(3, "СѓР». РћРєС‚СЏР±СЂСЊСЃРєР°СЏ"), Crime(6, "СѓР». РЎС‚РµРїРЅРѕРіРѕ С„СЂРѕРіРЅС‚Р°")}),
+		{"b123ca", {Crime(5, "СѓР». Р›РµРЅРёРЅР°"), Crime(8, "СѓР». РћРєС‚СЏР±СЂСЊСЃРєР°СЏ")}},
+		{"b555ab", {Crime(4, "РїРµСЂРµРєСЂС‘СЃС‚РѕРє Р›РµРЅРёРЅР° Рё РћРєС‚СЏР±СЂСЊСЃРєРѕР№"), Crime(8, "СѓР». РћРєС‚СЏР±СЂСЊСЃРєР°СЏ")}}
 	}*/;
 	load(base, "base.txt");
 	print(base);
 	
 
 #ifdef ADDITION_TO_BASE
-	std::string licence_plate; //номерной знак
+	std::string licence_plate; //РЅРѕРјРµСЂРЅРѕР№ Р·РЅР°Рє
 	int id;
 	std::string place;
-	cout << "Ввeдите номер автомобиля: "; cin >> licence_plate;
-	/*cout << "Выбирите правонарушение: "; cin >> id;
+	cout << "Р’РІeРґРёС‚Рµ РЅРѕРјРµСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ: "; cin >> licence_plate;
+	/*cout << "Р’С‹Р±РёСЂРёС‚Рµ РїСЂР°РІРѕРЅР°СЂСѓС€РµРЅРёРµ: "; cin >> id;
 	id = chek_crime();
-	cout << "Введите место проишествия: ";
+	cout << "Р’РІРµРґРёС‚Рµ РјРµСЃС‚Рѕ РїСЂРѕРёС€РµСЃС‚РІРёСЏ: ";
 	cin.ignore();
 	std::getline(std::cin, place);*/
 	base[licence_plate].push_back(Crime(chek_crime(), input_place()));
@@ -123,13 +123,13 @@ save(base, "base.txt");
 			{
 				fout << *jt << ",";
 			}
-			fout.seekp(-1, std::ios::cur); // cur - current (текущий)
+			fout.seekp(-1, std::ios::cur); // cur - current (С‚РµРєСѓС‰РёР№)
 			fout << ";\n";
 		}
 		fout.close();
 		std::string command = "notepad ";
 		command += filename;
-		system(command.c_str());//c-str - возвращает содержимое объекта std::string в виде массива элементов char (C-string)
+		system(command.c_str());//c-str - РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РѕР±СЉРµРєС‚Р° std::string РІ РІРёРґРµ РјР°СЃСЃРёРІР° СЌР»РµРјРµРЅС‚РѕРІ char (C-string)
 	}
 
 	void load(std::map<std::string, std::list<Crime>>& base, const std::string filename)
@@ -141,14 +141,14 @@ save(base, "base.txt");
 			while (!fin.eof())
 			{
 				std::string licence_plate;
-				std::string all_crimes; //этот буфер будет хранить все правонарушения заданного номера
+				std::string all_crimes; //СЌС‚РѕС‚ Р±СѓС„РµСЂ Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊ РІСЃРµ РїСЂР°РІРѕРЅР°СЂСѓС€РµРЅРёСЏ Р·Р°РґР°РЅРЅРѕРіРѕ РЅРѕРјРµСЂР°
 				std::getline(fin, licence_plate, ':');
 				std::getline(fin, all_crimes);
 				if (licence_plate.empty() || all_crimes.empty())continue;
 				all_crimes.erase(all_crimes.find_last_of(';'));
 				for (int start = -1, end = 0; end != std::string::npos; start = end)
 				{
-					start++;	//пропускаем запятую
+					start++;	//РїСЂРѕРїСѓСЃРєР°РµРј Р·Р°РїСЏС‚СѓСЋ
 					end = all_crimes.find(',', start);
 					std::string place = all_crimes.substr(start, end - start);
 					int id = std::stoi(place, 0, 10);
@@ -173,14 +173,14 @@ save(base, "base.txt");
 			cout << i.first << tab << i.second << endl;
 		}
 		int id;
-		cout << "Выбирите нарушение: "; cin >> id;
+		cout << "Р’С‹Р±РёСЂРёС‚Рµ РЅР°СЂСѓС€РµРЅРёРµ: "; cin >> id;
 		return id;
 	}
 
 	std::string input_place()
 	{
 		std::string place;
-		cout << "Введите место проишествия: ";
+		cout << "Р’РІРµРґРёС‚Рµ РјРµСЃС‚Рѕ РїСЂРѕРёС€РµСЃС‚РІРёСЏ: ";
 		cin.ignore();
 		std::getline(std::cin, place);
 		return place;
@@ -188,9 +188,9 @@ save(base, "base.txt");
 
 	std::string input_plate()
 	{
-		std::string licence_plate; //номерной знак
+		std::string licence_plate; //РЅРѕРјРµСЂРЅРѕР№ Р·РЅР°Рє
 		std::string place;
-		cout << "Ввeдите номер автомобиля: "; cin >> licence_plate;
+		cout << "Р’РІeРґРёС‚Рµ РЅРѕРјРµСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ: "; cin >> licence_plate;
 		return licence_plate;
 	}
 
@@ -200,25 +200,25 @@ save(base, "base.txt");
 		do
 		{
 			system("CLS");
-			cout << "1. Вывод всей базы;" << endl;
-			cout << "2. Вывод по номерному знаку;" << endl;
-			cout << "3. Вывод по диапазону номеров;" << endl;
-			cout << "4. Выборка по шаблону;" << endl;
-			cout << "5. Выборка по правонарушению;" << endl;
-			cout << "6. Выборка по адресам;" << endl;
-			cout << "7. Сохранение базы;" << endl;
-			cout << "8. Загрузка базы;" << endl;
-			cout << "9. Добавление записи;" << endl;
-			cout << "Esc - Выход из программы;" << endl;
+			cout << "1. Р’С‹РІРѕРґ РІСЃРµР№ Р±Р°Р·С‹;" << endl;
+			cout << "2. Р’С‹РІРѕРґ РїРѕ РЅРѕРјРµСЂРЅРѕРјСѓ Р·РЅР°РєСѓ;" << endl;
+			cout << "3. Р’С‹РІРѕРґ РїРѕ РґРёР°РїР°Р·РѕРЅСѓ РЅРѕРјРµСЂРѕРІ;" << endl;
+			cout << "4. Р’С‹Р±РѕСЂРєР° РїРѕ С€Р°Р±Р»РѕРЅСѓ;" << endl;
+			cout << "5. Р’С‹Р±РѕСЂРєР° РїРѕ РїСЂР°РІРѕРЅР°СЂСѓС€РµРЅРёСЋ;" << endl;
+			cout << "6. Р’С‹Р±РѕСЂРєР° РїРѕ Р°РґСЂРµСЃР°Рј;" << endl;
+			cout << "7. РЎРѕС…СЂР°РЅРµРЅРёРµ Р±Р°Р·С‹;" << endl;
+			cout << "8. Р—Р°РіСЂСѓР·РєР° Р±Р°Р·С‹;" << endl;
+			cout << "9. Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РїРёСЃРё;" << endl;
+			cout << "Esc - Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹;" << endl;
 			key = _getch();
 			switch (key)
 			{
 			case '1': print(base); break;
-			case '2': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '3': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '4':// cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '5': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '6': cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n";
+			case '2': //cout << "Р­С‚Р° РѕРїС†РёСЏ СѓС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅР°, РїРѕСЃС‚Р°СЂР°РµРјСЃСЏ РІРєР»СЋС‡РёС‚СЊ РµС‘ РІ СЃР»РµРґСѓСЋС‰РµРµ РѕР±РЅРѕРІР»РµРЅРёСЏ\n"; break;
+			case '3': //cout << "Р­С‚Р° РѕРїС†РёСЏ СѓС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅР°, РїРѕСЃС‚Р°СЂР°РµРјСЃСЏ РІРєР»СЋС‡РёС‚СЊ РµС‘ РІ СЃР»РµРґСѓСЋС‰РµРµ РѕР±РЅРѕРІР»РµРЅРёСЏ\n"; break;
+			case '4':// cout << "Р­С‚Р° РѕРїС†РёСЏ СѓС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅР°, РїРѕСЃС‚Р°СЂР°РµРјСЃСЏ РІРєР»СЋС‡РёС‚СЊ РµС‘ РІ СЃР»РµРґСѓСЋС‰РµРµ РѕР±РЅРѕРІР»РµРЅРёСЏ\n"; break;
+			case '5': //cout << "Р­С‚Р° РѕРїС†РёСЏ СѓС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅР°, РїРѕСЃС‚Р°СЂР°РµРјСЃСЏ РІРєР»СЋС‡РёС‚СЊ РµС‘ РІ СЃР»РµРґСѓСЋС‰РµРµ РѕР±РЅРѕРІР»РµРЅРёСЏ\n"; break;
+			case '6': cout << "Р­С‚Р° РѕРїС†РёСЏ СѓС‰С‘ РЅРµ РґРѕР±Р°РІР»РµРЅР°, РїРѕСЃС‚Р°СЂР°РµРјСЃСЏ РІРєР»СЋС‡РёС‚СЊ РµС‘ РІ СЃР»РµРґСѓСЋС‰РµРµ РѕР±РЅРѕРІР»РµРЅРёСЏ\n";
 				system("PAUSE");
 				 break;
 			case '7': save(base, filename); break;
