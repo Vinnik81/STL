@@ -54,6 +54,9 @@ std::ofstream& operator<<(std::ofstream& ofs, const Crime& obj)
 }
 
 void print(const std::map<std::string, std::list<Crime>>& base);
+void print_plate(const std::map<std::string, std::list<Crime>>& base, std::string num);
+void print_plate_range(const std::map<std::string, std::list<Crime>>& base, const std::string& first_num, const std::string& last_num);
+void print_place(const std::map<std::string, std::list<Crime>>& base, const std::string& place);
 void save(const std::map<std::string, std::list<Crime>>& base, const std::string& filename);
 void load(std::map<std::string, std::list<Crime>>& base, const std::string filename);
 int chek_crime();
@@ -98,6 +101,7 @@ void main()
 print(base);
 save(base, "base.txt");
 }
+
 	void print(const std::map<std::string, std::list<Crime>>&base)
 	{
 		system("CLS"); // Clear Screen
@@ -109,6 +113,58 @@ save(base, "base.txt");
 			cout << *jt << ";\n";
 		}
 		cout << "\n-----------------------------------------------------\n";
+		}
+		system("PAUSE");
+	}
+
+	void print_plate(const std::map<std::string, std::list<Crime>>& base, std::string num)
+	{
+		try
+		{
+			system("CLS"); // Clear Screen
+			num = input_plate();
+			for (std::list<Crime>::const_iterator it = base.at(num).begin(); it != base.at(num).end(); ++it)
+			{
+				cout << *it << endl;
+			}
+			system("PAUSE");
+		}
+		catch (const std::exception&)
+		{
+			cout << "В базе такого номера не существует" << endl;
+			system("PAUSE");
+		}
+	}
+
+	void print_plate_range(const std::map<std::string, std::list<Crime>>& base, const std::string& first_num, const std::string& last_num)
+	{
+			system("CLS");
+			for (std::map<std::string, std::list<Crime>>::const_iterator it = base.lower_bound(first_num); it != base.upper_bound(last_num); ++it)
+			{
+				cout << it->first << ":\n";
+				for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
+				{
+					cout << *jt << endl;
+				}
+			}
+			system("PAUSE");
+	}
+
+	void print_place(const std::map<std::string, std::list<Crime>>& base, const std::string& place)
+	{
+		system("CLS");
+		//std::string place;
+		input_place();
+		try
+		{
+			for (std::list<Crime>::const_iterator it = base.at(place).begin(); it != base.at(place).end(); ++it)
+			{
+				cout << *it << endl;
+			}
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << endl;
 		}
 		system("PAUSE");
 	}
@@ -165,7 +221,7 @@ save(base, "base.txt");
 		}
 	}
 
-	int chek_crime()
+	 int chek_crime()
 	{
 		system("CLS");
 		for (std::pair<int, std::string> i : CRIMES)
@@ -197,6 +253,10 @@ save(base, "base.txt");
 	void menu(std::map<std::string, std::list<Crime>>& base, const std::string& filename)
 	{
 		char key;
+		std::string num;
+		std::string first_num;
+		std::string last_num;
+		std::string place;
 		do
 		{
 			system("CLS");
@@ -214,17 +274,18 @@ save(base, "base.txt");
 			switch (key)
 			{
 			case '1': print(base); break;
-			case '2': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '3': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '4':// cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '5': //cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '6': cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n";
+			case '2': print_plate(base, num); break;
+			case '3':cout << "Введите первый номерной знак: "; cin >> first_num;
+				cout << "Введите последний номерной знак: "; cin >> last_num;
+				print_plate_range(base, first_num, last_num); break;
+			case '4': cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
+			case '5': //print_id(base, id); break;
+			case '6': print_place(base, place); break;
 				system("PAUSE");
-				 break;
+				 
 			case '7': save(base, filename); break;
 			case '8': load(base, filename); break;
 			case '9': base[input_plate()].push_back(Crime(chek_crime(), input_place())); break;
-
 			}
 		} while (key != 27);
 	}
