@@ -259,7 +259,6 @@ save(base, "base.txt");
 		std::string num;
 		std::string first_num;
 		std::string last_num;
-		int id{};
 		do
 		{
 			system("CLS");
@@ -282,10 +281,11 @@ save(base, "base.txt");
 				cout << "Введите последний номерной знак: "; cin >> last_num;
 				print_plate_range(base, first_num, last_num); break;
 			case '4': cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '5': chek_crime(); print_id(base, id); break;
+			case '5':int id;
+				cout << "Выбирите нарушение: ";  cin >> id;
+				print_id(base, id); break;
 			case '6':/* print_place(base, place);*/ break;
-				system("PAUSE");
-				 
+				system("PAUSE");	 
 			case '7': save(base, filename); break;
 			case '8': load(base, filename); break;
 			case '9': base[input_plate()].push_back(Crime(chek_crime(), input_place())); break;
