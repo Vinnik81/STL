@@ -277,11 +277,13 @@ save(base, "base.txt");
 			{
 			case '1': print(base); break;
 			case '2': print_plate(base, num); break;
-			case '3':cout << "Введите первый номерной знак: "; cin >> first_num;
+			case '3': system("CLS");
+				cout << "Введите первый номерной знак: "; cin >> first_num;
 				cout << "Введите последний номерной знак: "; cin >> last_num;
 				print_plate_range(base, first_num, last_num); break;
 			case '4': cout << "Эта опция ущё не добавлена, постараемся включить её в следующее обновления\n"; break;
-			case '5':int id;
+			case '5': system("CLS");
+				int id;
 				cout << "Выбирите нарушение: ";  cin >> id;
 				print_id(base, id); break;
 			case '6':/* print_place(base, place);*/ break;
