@@ -4,6 +4,7 @@
 #include<string>
 #include<map>
 #include<list>
+#include<algorithm>
 #include<conio.h>
 
 using std::cin;
@@ -57,6 +58,7 @@ void print(const std::map<std::string, std::list<Crime>>& base);
 void print_plate(const std::map<std::string, std::list<Crime>>& base, std::string num);
 void print_plate_range(const std::map<std::string, std::list<Crime>>& base, const std::string& first_num, const std::string& last_num);
 void print_id(const std::map<std::string, std::list<Crime>>& base, int id);
+void print_place(const std::map<std::string, std::list<Crime>>& base, const std:: string& place);
 void save(const std::map<std::string, std::list<Crime>>& base, const std::string& filename);
 void load(std::map<std::string, std::list<Crime>>& base, const std::string filename);
 int chek_crime();
@@ -172,6 +174,28 @@ save(base, "base.txt");
 		system("PAUSE");
 	}
 
+	void print_place(const std::map<std::string, std::list<Crime>>& base, const std::string& place)
+	{
+		system("CLS");
+		for (std::map<std::string, std::list<Crime>>::const_iterator it = base.begin(); it != base.end(); ++it)
+		{
+			std::list<Crime>::const_iterator find_place = std::find_if
+			(
+				it->second.begin(), it->second.end(), [&](const Crime& crime)
+				{return crime.get_place() == place; }
+			);
+			if (find_place != it->second.end())
+			{
+				cout << it->first + ":\n";
+				for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
+				{
+					cout << *jt << ";" << endl;
+				}
+			}
+		}
+		system("PAUSE");
+	}
+
 	void save(const std::map<std::string, std::list<Crime>>& base, const std::string& filename)
 	{
 		std::ofstream fout(filename);
@@ -259,6 +283,7 @@ save(base, "base.txt");
 		std::string num;
 		std::string first_num;
 		std::string last_num;
+		std::string place;
 		do
 		{
 			system("CLS");
@@ -286,7 +311,11 @@ save(base, "base.txt");
 				int id;
 				cout << "Выбирите нарушение: ";  cin >> id;
 				print_id(base, id); break;
-			case '6':/* print_place(base, place);*/ break;
+			case '6': system("CLS");
+				cout << "Введите адрес правонарушения: "; 
+				cin.ignore();
+				std::getline(std::cin, place);
+				print_place(base, place); break;
 				system("PAUSE");	 
 			case '7': save(base, filename); break;
 			case '8': load(base, filename); break;
