@@ -316,7 +316,6 @@ save(base, "base.txt");
 				cin.ignore();
 				std::getline(std::cin, place);
 				print_place(base, place); break;
-				system("PAUSE");	 
 			case '7': save(base, filename); break;
 			case '8': load(base, filename); break;
 			case '9': base[input_plate()].push_back(Crime(chek_crime(), input_place())); break;
