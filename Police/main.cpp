@@ -179,7 +179,7 @@ save(base, "base.txt");
 		system("CLS");
 		for (std::map<std::string, std::list<Crime>>::const_iterator it = base.begin(); it != base.end(); ++it)
 		{
-			std::list<Crime>::const_iterator find_place = std::find_if
+			/*std::list<Crime>::const_iterator find_place = std::find_if
 			(
 				it->second.begin(), it->second.end(), [&](const Crime& crime)
 				{return crime.get_place() == place; }
@@ -190,6 +190,14 @@ save(base, "base.txt");
 				for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
 				{
 					cout << *jt << ";" << endl;
+				}
+			}*/
+			for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); jt++)
+			{
+				if (jt->get_place().find(place) != std::string::npos)
+				{
+					cout << it->first << endl;;
+					break;
 				}
 			}
 		}
